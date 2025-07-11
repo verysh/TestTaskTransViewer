@@ -14,8 +14,7 @@ final class DataManager {
            let data = FileManager.default.contents(atPath: path) {
             let decoder = PropertyListDecoder()
             do {
-                let transDTOs = try decoder.decode([TransactionDTO].self, from: data)
-                let transactions = transDTOs.map { Transaction.init(dto: $0) }
+                let transactions = try decoder.decode([Transaction].self, from: data)
                 completion(transactions)
             } catch {
                 print("Error decoding transactions plist: \(error)")
@@ -30,8 +29,7 @@ final class DataManager {
            let data = FileManager.default.contents(atPath: path) {
             let decoder = PropertyListDecoder()
             do {
-                let ratesDTOs = try decoder.decode([RateDTO].self, from: data)
-                let rates = ratesDTOs.map { Rate.init(dto: $0) }
+                let rates = try decoder.decode([Rate].self, from: data)
                 completion(rates)
             } catch {
                 print("Error decoding rates plist: \(error)")

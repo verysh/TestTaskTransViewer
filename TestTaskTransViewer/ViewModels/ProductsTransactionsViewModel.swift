@@ -26,10 +26,6 @@ final class ProductsTransactionsViewModel {
         self.product = product
     }
     
-    func fetchProducts() {
-        fetchProdstrans()
-    }
-    
     func fetchNumberOfProducts() -> Int {
         return products.count
     }
@@ -56,6 +52,12 @@ final class ProductsTransactionsViewModel {
         }
     }
     
+    func fetchProducts() {
+        DataManager.fetchAllTransaction(completion: { [weak self] transactions in
+            self?.fetchProducts(transactions: transactions)
+        })
+    }
+    
     func totalSum() -> String {
         fetchTotalSum()
     }
@@ -66,12 +68,7 @@ final class ProductsTransactionsViewModel {
 }
 
 private extension ProductsTransactionsViewModel {
-    func fetchProdstrans() {
-        DataManager.fetchAllTransaction(completion: { [weak self] transactions in
-            self?.fetchProducts(transactions: transactions)
-        })
-    }
-    
+
     func fetchProducts(transactions: [Transaction])  {
         let transGroups = Dictionary(grouping: transactions, by: { $0.sku })
         for (sku, transactions) in transGroups {
