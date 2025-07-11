@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct RateDTO: Decodable, Equatable {
+    let from: String
+    let to: String
+    let rate: String
+}

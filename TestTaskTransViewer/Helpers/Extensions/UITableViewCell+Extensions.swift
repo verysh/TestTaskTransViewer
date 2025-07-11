@@ -5,4 +5,8 @@
 //  Created by Vladimir Eryshev on 11.07.2025.
 //
 
-import Foundation
+import UIKit
+
+extension UITableViewCell {
+    class var reuseId: String { return String(describing: self) }
+}

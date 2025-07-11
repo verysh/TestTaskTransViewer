@@ -6,3 +6,13 @@
 //
 
 import Foundation
+
+struct Product {
+    var name: String
+    var transactions: [Transaction]
+    
+    init(name: String, transactions: [Transaction]) {
+        self.name = name
+        self.transactions = transactions
+    }
+}

@@ -6,3 +6,15 @@
 //
 
 import Foundation
+
+struct Rate {
+    let from: String
+    let to: String
+    let rate: String
+    
+    init(dto: RateDTO) {
+        self.from = dto.from
+        self.to = dto.to
+        self.rate = dto.rate
+    }
+}

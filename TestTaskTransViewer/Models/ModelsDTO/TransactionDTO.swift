@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct TransactionDTO: Decodable, Hashable {
+    var amount: String
+    var currency: String
+    var sku: String
+}

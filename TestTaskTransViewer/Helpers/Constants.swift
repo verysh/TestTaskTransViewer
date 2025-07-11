@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct Constants {
+    static let currency = "GBP"
+    static let heightRow = 44.0
+}
